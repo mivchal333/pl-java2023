@@ -14,7 +14,13 @@ public class TodoRepository {
         // use HttpResponse.BodyHandlers.ofString() handler
         // return response body
 
-        return "";
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(new URI("https://jsonplaceholder.typicode.com/todos/1"))
+                .GET()
+                .build();
+
+        return HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString()).body();
+
     }
 
 }

@@ -1,5 +1,7 @@
 package java10.optionalOrElseThrow;
 
+import java.util.Optional;
+
 public class DataService {
     DataProvider dataProvider = new DataProvider();
 
@@ -8,6 +10,8 @@ public class DataService {
         // get username from DataProvider.
         // Return value or throw exception if there is no value
 
-        return "";
+        Optional<String> username = dataProvider.getUsername(id);
+
+        return username.orElseThrow();
     }
 }

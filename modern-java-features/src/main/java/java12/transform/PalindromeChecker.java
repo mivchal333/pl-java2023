@@ -5,8 +5,10 @@ public class PalindromeChecker {
     boolean isPalindrome(String text) {
         // implement here
         // TIP: you can use StringBuilder.reverse method
-
-
-        return false;
+        return text
+                .transform(s -> new StringBuilder(s))
+                .reverse()
+                .toString()
+                .equals(text);
     }
 }
